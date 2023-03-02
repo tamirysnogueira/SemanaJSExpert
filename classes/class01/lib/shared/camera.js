@@ -10,24 +10,19 @@ export default class Camera{
             )
         }
 
-        //pegar a primeira opção da câmera com o usuário
-        const devices = await navigator.mediaDevices.enumerateDevices();
-        const videoDevices = devices.filter(device => device.kind === 'videoinput');
-
         const videoConfig = {
             audio: false,
             video: {
-                width: globalThis.screen.availWidth, //objeto global do js pega o tamanho disponível da tela
-                height: globalThis.screen.availHeight,
-                frameRate: {
-                    ideal: 60
-                },
-                deviceId: videoDevices[0].deviceId
+              width: globalThis.screen.availWidth,
+              height: globalThis.screen.availHeight,
+              frameRate: {
+                ideal: 60
+                }
+            //   deviceId: videoDevices[0].deviceId
             }
-            
         }
 
-        const stream = await navigator.mediaDevices.getUserMedia(videoConfig)
+        const stream = await navigator.mediaDevices.getUserMedia( videoConfig)
 
         const camera = new Camera()
         camera.video.srcObject = stream
