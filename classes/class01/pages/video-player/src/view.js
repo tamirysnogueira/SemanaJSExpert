@@ -16,13 +16,25 @@ export default class View {
         return this.#canvasContext.getImageData(0, 0, width, height)
     }
 
-    togglePlayVideo(){
-        if(this.#videoElement.paused){
-            this.#videoElement.play()
+    toggleVideo(blinked){
+        if(blinked === 'rightEye'){
+            this.#videoElement.currentTime -= 10
             return
         }
 
-        this.#videoElement.pause()
+        if(blinked === 'leftEye'){
+            this.#videoElement.currentTime += 10
+            return
+        }
+
+        if(blinked === 'blinked'){
+            if(this.#videoElement.paused){
+                this.#videoElement.play()
+                return
+            }
+    
+            this.#videoElement.pause()
+        }
     }
     
     enableButton() {

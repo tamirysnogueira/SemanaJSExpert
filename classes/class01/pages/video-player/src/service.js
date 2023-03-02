@@ -71,8 +71,6 @@ export default class Service {
 
           const piscou = await this.piscada(blinkedRight, blinkedLeft, blinked)
 
-          console.log(piscou)
-
           if (!piscou) continue
           if(!shouldRun()) continue 
 

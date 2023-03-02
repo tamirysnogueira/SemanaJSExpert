@@ -31,9 +31,9 @@ export default class Controller {
                 return
             } 
             
-            const blinked = data.piscou
-            this.#blinkCounter += blinked
-            this.#view.togglePlayVideo()
+            const blinked = data.blinked
+            this.#blinkCounter += 1
+            this.#view.toggleVideo(blinked)
             console.log('blinked', blinked)
         }
 
