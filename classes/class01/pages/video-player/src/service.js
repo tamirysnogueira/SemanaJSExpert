@@ -37,7 +37,7 @@ export default class Service {
         );
     }
 
-    async piscada(right, left, piscada){
+    async whatEyeBlinked(right, left, piscada){
       if(piscada) return 'blinked'
       if(right) return 'leftEye'
       if(left) return 'rightEye'
@@ -69,9 +69,9 @@ export default class Service {
           const blinkedRight = rightEAR <= EAR_THRESHOLD && leftEAR >= EAR_THRESHOLD
           const blinkedLeft = leftEAR <= EAR_THRESHOLD && rightEAR >= EAR_THRESHOLD
 
-          const piscou = await this.piscada(blinkedRight, blinkedLeft, blinked)
+          const eye = await this.whatEyeBlinked(blinkedRight, blinkedLeft, blinked)
 
-          if (!piscou) continue
+          if (!eye) continue
           if(!shouldRun()) continue 
 
           return piscou
