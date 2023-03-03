@@ -1,1 +1,5 @@
-export default class HandGestureView {}
+export default class HandGestureView {
+    loop(fn){
+        requestAnimationFrame(fn)
+    }
+}
