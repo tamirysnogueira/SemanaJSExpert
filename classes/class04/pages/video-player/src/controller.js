@@ -6,7 +6,7 @@ export default class Controller {
   #worker
   #blinkCounter = 0
 
-  constructor({ view, worker, camera }) {
+  constructor({ view, worker, camera}) {
     this.#view = view
     this.#camera = camera
     this.#worker = this.#configureWorker(worker)
